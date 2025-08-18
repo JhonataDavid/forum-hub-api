@@ -29,6 +29,7 @@ public class TopicoMapper {
                 entity.getCurso().getCategoria());
 
         return new TopicoResponseDTO(
+                entity.getId(),
                 entity.getTitulo(),
                 entity.getMensagem(),
                 entity.getDataCriacao(),
