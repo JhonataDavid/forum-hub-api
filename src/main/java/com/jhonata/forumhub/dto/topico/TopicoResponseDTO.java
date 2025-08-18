@@ -9,6 +9,6 @@ public record TopicoResponseDTO(String titulo,
                                 String mensagem,
                                 LocalDateTime dataDeCriacao,
                                 StatusTopico status,
-                                String autor,
+                                //String autor,
                                 CursoResponseDTO curso) {
 }
