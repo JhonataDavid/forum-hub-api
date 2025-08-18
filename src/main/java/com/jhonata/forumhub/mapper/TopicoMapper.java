@@ -24,7 +24,6 @@ public class TopicoMapper {
     }
 
     public TopicoResponseDTO entityToDto(Topico entity){
-
         CursoResponseDTO cursoResponseDTO = new CursoResponseDTO(
                 entity.getCurso().getNome(),
                 entity.getCurso().getCategoria());
@@ -34,7 +33,7 @@ public class TopicoMapper {
                 entity.getMensagem(),
                 entity.getDataCriacao(),
                 entity.getStatusTopico(),
-                entity.getAutor().getNome(),
+                //ntity.getAutor().getNome(),
                 cursoResponseDTO);
     }
 }
