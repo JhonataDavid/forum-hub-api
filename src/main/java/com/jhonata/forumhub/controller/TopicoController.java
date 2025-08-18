@@ -23,23 +23,31 @@ public class TopicoController {
     }
 
     @GetMapping()
-    public Page<TopicoResponseDTO> listarTopicos(Pageable pageable){
+    public Page<TopicoResponseDTO> listarTopicos(Pageable pageable) {
         return service.listarTopicos(pageable);
     }
 
-    @GetMapping("/topicos/{id}")
-    public ResponseEntity<TopicoResponseDTO> listarTopico(@PathVariable() Long id){
+    @GetMapping("/{id}")
+    public ResponseEntity<TopicoResponseDTO> listarTopico(@PathVariable() Long id) {
         return service.buscarTopicoPorid(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping()
-    public ResponseEntity<Void> registrarTopico(@RequestBody @Valid TopicoRequestDTO topico){
+    public ResponseEntity<Void> registrarTopico(@RequestBody @Valid TopicoRequestDTO topico) {
         service.salvarTopico(topico);
         return ResponseEntity.ok().build();
     }
 
-
-
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> atualizarTopico(@PathVariable Long id,
+                                                @RequestBody @Valid TopicoRequestDTO topico) {
+        try {
+            service.atualizarTopico(id, topico);
+            return ResponseEntity.ok().build();
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

@@ -52,7 +52,17 @@ public class TopicoService {
     }
 
     @Transactional
-    public void atualizarTopico(TopicoRequestDTO topicoRequestDTO) {
+    public void atualizarTopico(Long id, TopicoRequestDTO dto) {
+        Topico topico = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Topico não encontrado"));
 
+        topico.setTitulo(dto.titulo());
+        topico.setMensagem(dto.mensagem());
+
+        var novoCurso = new Curso();
+        novoCurso.setNome(dto.nomeCurso());
+        novoCurso.setCategoria(Categoria.valueOf(dto.categoria()));
+        cursoRepository.save(novoCurso);
+        topico.setCurso(novoCurso);
     }
 }
