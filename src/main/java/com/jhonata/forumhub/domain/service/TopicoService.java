@@ -65,4 +65,12 @@ public class TopicoService {
         cursoRepository.save(novoCurso);
         topico.setCurso(novoCurso);
     }
+
+    @Transactional
+    public void deletarTopico(Long id){
+        if (!repository.existsById(id)){
+            throw new RuntimeException("Topico nao encontrado");
+        }
+        repository.deleteById(id);
+    }
 }

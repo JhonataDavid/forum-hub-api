@@ -50,4 +50,10 @@ public class TopicoController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletarTopicoPorId(@PathVariable Long id){
+        service.deletarTopico(id);
+        return ResponseEntity.noContent().build();
+    }
 }
