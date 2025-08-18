@@ -5,7 +5,8 @@ import com.jhonata.forumhub.dto.curso.CursoResponseDTO;
 
 import java.time.LocalDateTime;
 
-public record TopicoResponseDTO(String titulo,
+public record TopicoResponseDTO(Long id,
+                                String titulo,
                                 String mensagem,
                                 LocalDateTime dataDeCriacao,
                                 StatusTopico status,
