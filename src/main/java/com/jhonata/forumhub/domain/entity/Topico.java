@@ -25,9 +25,9 @@ public class Topico {
     @Enumerated(EnumType.STRING)
     @Column(name = "status_topico")
     private StatusTopico statusTopico;
-//    @ManyToOne
-//    @JoinColumn(name = "usuario_id", nullable = false)
-//    private Usuario autor;
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario autor;
     @ManyToOne
     @JoinColumn(name = "curso_id")
     private Curso curso;
