@@ -17,7 +17,7 @@ ForumHub é um projeto desenvolvido durante o programa **Oracle Next Education (
 
 ---
 
-## Como Executar
+## 💻 Como Executar
 
 1. Clone o projeto:
 ```
@@ -32,7 +32,7 @@ mvn spring-boot:run
 
 ---
 
-## Estrutura do projeto
+## 📁 Estrutura do projeto
 
 ```
 com.jhonata.forumhub
@@ -48,8 +48,9 @@ com.jhonata.forumhub
 ├── repository        # Repositórios JPA
 └── service           # Lógica de negócio
 ```
+___
 
-## Endpoints Principais
+## ⚡ Endpoints Principais
 
 ### Autenticação.
 
@@ -142,12 +143,12 @@ Consulta um tópico específico por ID.
 	"status": "ABERTO",
 	"curso": {
 		"nome": "Java Avançado",
-		"categoria": "PROGRAMACAOWEB"
+		"categoria": "PROGRAMADORBACKEND"
 	}
 }
 ```
 
-**POST** /topicos  
+**POST** `/topicos`    
 Cria um novo tópico.
 
 **Request Body**
@@ -160,8 +161,29 @@ Cria um novo tópico.
 }
 ```
 
+**PUT** `/topicos/{id}`  
+Atualiza um tópico existente.
 
+**Request Body**
+```json
+{
+  "titulo": "Novo título do tópico",
+  "mensagem": "Atualizando o conteúdo do tópico.",
+  "nomeCurso": "Java Avançado",
+  "categoria": "PROGRAMADORBACKEND"
+}
+```
 
+**DELETE** `/topicos/{id}`  
+Deleta um tópico por ID.
 
+> http://localhost:8080/topicos/1
 
+___
+
+### 🏗️ Banco de Dados
+Scripts de criação de tabelas (migrations):  
+V1_create_table_usuario.sql – Tabela de usuários  
+V2_create_table_cursos.sql – Tabela de cursos  
+V3_create_table_topicos.sql – Tabela de tópicos
 
