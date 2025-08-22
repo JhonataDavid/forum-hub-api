@@ -21,7 +21,7 @@ ForumHub é um projeto desenvolvido durante o programa **Oracle Next Education (
 
 1. Clone o projeto:
 ```
-git clone https://github.com/SEU-USUARIO/forumhub.git
+git clone https://github.com/JhonataDavid/forum-hub-api.git
 ```
 2. Configure o banco de dados e aplique os scripts de migração em src/main/resources/db/migration
 3. Execute a aplicação com Maven:
